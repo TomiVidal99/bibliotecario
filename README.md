@@ -56,8 +56,8 @@ Project is: _in progress_.
 
 ## Contact
 
-[@TomiVidal99](https://www.tomas-vidal.xyz/)
-[@matimolinari](https://github.com/matimolinari)
+- [@TomiVidal99](https://www.tomas-vidal.xyz/)
+- [@matimolinari](https://github.com/matimolinari)
 
 ## License
 
