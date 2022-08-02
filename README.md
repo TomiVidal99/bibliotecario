@@ -26,12 +26,13 @@ A GUI app that organizes your files.
 ## Technologies Used
 
 - Python 3.10.5.
+- PyQT5 ([documentation](https://www.riverbankcomputing.com/static/Docs/PyQt5/))
 
 ## Features
 
-List the ready features here:
+<!-- List the ready features here: -->
 
-- Nothing.
+- None yet.
 
 <!-- ## Setup -->
 <!-- You can get the compiled version that matches your OS [_here_](https://drive.google.com/drive/folders/1H64d7qW_NE-Uzm5RjM3dDNjM7AF094wG?usp=sharing) -->
