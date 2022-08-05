@@ -53,6 +53,12 @@ Project is: _in progress_.
 <!--- Improvement to be done 1-->
 <!--- Improvement to be done 2-->
 
+## Development
+- To make the GUI use 
+```bash
+designer-qt5
+```
+
 ## TODO:
 
 - [ ] ALL.
