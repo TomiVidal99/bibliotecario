@@ -1,3 +1,5 @@
+[![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
+
 # bibliotecario
 A GUI app that organizes your files.
 
@@ -57,7 +59,7 @@ Project is: _in progress_.
 
 ## Contact
 
-- [@TomiVidal99](https://www.tomas-vidal.xyz/)
+- [@TomiVidal99](https://github.com/TomiVidal99/)
 - [@matimolinari](https://github.com/matimolinari)
 
 ## License
