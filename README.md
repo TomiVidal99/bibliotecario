@@ -54,10 +54,20 @@ Project is: _in progress_.
 <!--- Improvement to be done 2-->
 
 ## Development
-- To make the GUI we use 
+To make the GUI we use [*designer-qt5*](https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html)
+### Linux
 ```bash
-designer-qt5
+sh editGui.sh
 ```
+```bash
+sh test.sh
+```
+```bash
+sh compile.sh
+```
+###
+_*TODO*_
+
 
 ## TODO:
 
