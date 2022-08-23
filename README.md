@@ -23,7 +23,7 @@ A GUI app that organizes your files.
 
 <!--- Provide general information about your project here.-->
 
-- The gold is to provide an GUI to organize files.
+- The gold is to provide an UI to setup filters and some basic settings to automatically move files from what we call *origin folders* to *destination folders*. Eventually i'd be great to provide some backup system.
 
 ## Technologies Used
 
@@ -53,14 +53,18 @@ Project is: _in progress_.
 <!--- Improvement to be done 1-->
 <!--- Improvement to be done 2-->
 
+## Development
+- To make the GUI we use 
+```bash
+designer-qt5
+```
+
 ## TODO:
 
 - [ ] ALL.
 
-## Contact
-
-- [@TomiVidal99](https://github.com/TomiVidal99/)
-- [@matimolinari](https://github.com/matimolinari)
+## Contributors
+[@TomiVidal99](https://github.com/TomiVidal99/) (https://tomas-vidal.xyz/)
 
 ## License
 
