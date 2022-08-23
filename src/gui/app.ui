@@ -55,26 +55,31 @@
          </widget>
         </item>
         <item>
-         <widget class="QListView" name="list_recently_moved"/>
+         <widget class="QListWidget" name="list_recently_moved"/>
         </item>
         <item>
          <widget class="QPushButton" name="btn_open_recently_moved">
           <property name="text">
-           <string>ADD ORIGIN FOLDER</string>
+           <string>Open folder</string>
           </property>
          </widget>
         </item>
         <item>
-         <widget class="QListView" name="list_origin_folders"/>
+         <widget class="QListWidget" name="list_origin_folders"/>
         </item>
         <item>
          <widget class="QPushButton" name="btn_add_origin_folder">
           <property name="text">
-           <string>PushButton</string>
+           <string>Add origin folder</string>
           </property>
          </widget>
         </item>
        </layout>
+       <zorder>list_recently_moved</zorder>
+       <zorder>label_app_title</zorder>
+       <zorder>btn_open_recently_moved</zorder>
+       <zorder>list_origin_folders</zorder>
+       <zorder>btn_add_origin_folder</zorder>
       </widget>
      </widget>
     </item>
