@@ -1,4 +1,6 @@
-# This code binds the GUI and the app (logic)
+'''
+    This code binds the GUI and the app (logic)
+'''
 
 import sys
 from PyQt5.QtWidgets import QApplication, QDialog
