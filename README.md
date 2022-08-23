@@ -5,7 +5,7 @@ A GUI app that organizes your files.
 
 ## Screenshots
 
-<!-- ![Example screenshot](./assets/Librarian-Screenshot.png) -->
+![Example screenshot](./bibliotecario-screenshot.png)
 
 ## Table of Contents
 
