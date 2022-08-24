@@ -3,11 +3,10 @@
 """
 
 import os
-import sys
 import json
-from PyQt5.QtWidgets import QApplication, QListWidgetItem, QMainWindow
-from app_ui import Ui_MainWindow
-from utils.create_intial_settings import (
+from PyQt5.QtWidgets import QListWidgetItem, QMainWindow
+from src.gui.app_ui import Ui_MainWindow
+from src.utils.create_intial_settings import (
     create_settings_folder,
     create_intial_settings,
     create_intial_origin_folders,
@@ -20,7 +19,7 @@ LINUX_SETTINGS = "/home/tomii/.config/bibliotecario/settings.json"
 LINUX_RECENTLY_MOVED = "/home/tomii/.config/bibliotecario/recently_moved.json"
 
 
-class MainApp(QMainWindow):
+class MainWindow(QMainWindow):
     """
     Main app, all code should run from this entry point
     """
@@ -101,11 +100,3 @@ class MainApp(QMainWindow):
         Callback when the user wants to add a origin folder
         """
         print("TODO: add origin folder")
-
-
-# Good practice when a file is executable is to describe it as follows
-if __name__ == "__main__":
-    app = QApplication(sys.argv)
-    win = MainApp()
-    win.show()
-    sys.exit(app.exec_())
