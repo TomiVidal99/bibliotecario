@@ -9,4 +9,4 @@
 pyuic5 src/gui/app.ui > src/app/app_ui.py
 
 # Executes the app.
-python src/app/app.py
+python main.py

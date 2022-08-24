@@ -26,7 +26,7 @@
          <x>0</x>
          <y>0</y>
          <width>757</width>
-         <height>616</height>
+         <height>575</height>
         </rect>
        </property>
        <property name="font">
@@ -81,6 +81,31 @@
        <zorder>list_origin_folders</zorder>
        <zorder>btn_add_origin_folder</zorder>
       </widget>
+     </widget>
+    </item>
+    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
+     <widget class="QPushButton" name="btn_reset_settings">
+      <property name="minimumSize">
+       <size>
+        <width>761</width>
+        <height>0</height>
+       </size>
+      </property>
+      <property name="maximumSize">
+       <size>
+        <width>761</width>
+        <height>16777215</height>
+       </size>
+      </property>
+      <property name="font">
+       <font>
+        <family>Hack Nerd Font</family>
+        <pointsize>12</pointsize>
+       </font>
+      </property>
+      <property name="text">
+       <string>Reset settings</string>
+      </property>
      </widget>
     </item>
    </layout>

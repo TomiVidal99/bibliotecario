@@ -23,7 +23,7 @@ A GUI app that organizes your files.
 
 <!--- Provide general information about your project here.-->
 
-- The gold is to provide an UI to setup filters and some basic settings to automatically move files from what we call *origin folders* to *destination folders*. Eventually i'd be great to provide some backup system.
+    The gold is to provide a GUI to setup how files should be organized automatically in your system. The files will move from what we call *origin folders* to *destination folders* through *Filters* which are a way to describe what's the trigger and how should the file be organized; *Filters* are [regex](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) expressions basically, and the specific type of filters *'name'* and *'format'* are just some particular regex. Eventually i'd be great to provide some backup system.
 
 ## Technologies Used
 
@@ -34,7 +34,8 @@ A GUI app that organizes your files.
 
 <!-- List the ready features here: -->
 
-- None yet.
+- [ ] Organization of files.
+- [ ] Backup of files.
 
 <!-- ## Setup -->
 <!-- You can get the compiled version that matches your OS [_here_](https://drive.google.com/drive/folders/1H64d7qW_NE-Uzm5RjM3dDNjM7AF094wG?usp=sharing) -->
