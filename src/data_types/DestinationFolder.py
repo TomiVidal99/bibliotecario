@@ -3,8 +3,8 @@
     Describes the folder that is going to be recieving the files that are being filtered.
 """
 
-from Folder import Folder
-from Filter import Filter
+from src.data_types.Folder import Folder
+from src.data_types.Filter import Filter
 
 
 class DestinationFolder(Folder):

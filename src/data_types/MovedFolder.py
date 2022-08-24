@@ -2,7 +2,7 @@
     MovedFolder inherits Folder, describes the folder that contains the file that has been moved to.
 """
 
-from Folder import Folder
+from src.data_types.Folder import Folder
 
 class MovedFolder(Folder):
     """
