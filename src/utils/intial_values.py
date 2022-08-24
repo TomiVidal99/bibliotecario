@@ -5,18 +5,18 @@
 
 import platform
 import os
-import json
 from pathlib import Path
+from src.data_types.OriginFolder import OriginFolder
 
 
-def get_current_os():
+def get_current_os() -> None:
     """
     Returns 'Windows', 'Linux', 'MacOS'.
     """
     return platform.system()
 
 
-def get_default_origin_folders(default_origin_folders_file):
+def get_default_origin_folders() -> list:
     """
     Creates the default origin folders depending on the current OS.
     """
@@ -31,5 +31,8 @@ def get_default_origin_folders(default_origin_folders_file):
         user_path = Path.home()
         downloads_folder = str(os.path.join(user_path, "Downloads"))
         desktop_folder = str(os.path.join(user_path, "Desktop"))
+    # create the OriginFolder instances
+    downloads = OriginFolder(0, "Downloads", downloads_folder)
+    desktop = OriginFolder(0, "Desktop", desktop_folder)
     # push the folders to the settings
-    return [downloads_folder, desktop_folder]
+    return [downloads, desktop]

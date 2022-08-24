@@ -4,6 +4,7 @@
 
 import os
 import json
+import pickle
 from PyQt5.QtWidgets import QListWidgetItem, QMainWindow
 from src.gui.app_ui import Ui_MainWindow
 from src.utils.create_intial_settings import (
@@ -24,7 +25,7 @@ class MainWindow(QMainWindow):
     Main app, all code should run from this entry point
     """
 
-    def __init__(self):
+    def __init__(self) -> None:
         super().__init__()
         self.main_ui = Ui_MainWindow()
         self.main_ui.setupUi(self)
@@ -34,7 +35,7 @@ class MainWindow(QMainWindow):
         self.setup_btn_handlers()  # add callbacks to buttons
         self.restore_previous_settings()
 
-    def setup_btn_handlers(self):
+    def setup_btn_handlers(self) -> None:
         """
         Hooks up the callbacks to the buttons in the UI
         """
@@ -46,14 +47,14 @@ class MainWindow(QMainWindow):
         )
         self.main_ui.btn_reset_settings.clicked.connect(self.handle_reset_settings)
 
-    def handle_reset_settings(self):
+    def handle_reset_settings(self) -> None:
         """
         Callback to reset the user settings
         """
         # TODO: should pop up a menu to confirm the action
         reset_settings_to_default(LINUX_SETTINGS_FOLDER)
 
-    def check_first_init(self):
+    def check_first_init(self) -> None:
         """
         Check if this is the first time that the user inits the app.
         If this is the case should create the settings files.
@@ -65,7 +66,7 @@ class MainWindow(QMainWindow):
             create_intial_settings(LINUX_SETTINGS)
             create_intial_origin_folders(LINUX_RECENTLY_MOVED)
 
-    def restore_previous_settings(self):
+    def restore_previous_settings(self) -> None:
         """
         Load to memory cached data in temp files from the user.
         Also if such temp files doesn't exist should create the first configuration.
@@ -75,17 +76,20 @@ class MainWindow(QMainWindow):
         # TODO: i should have in count the edge case when the folder .config doesn't exist
 
         # load the data from the settings files
-        with open(LINUX_RECENTLY_MOVED, "r", -1, "utf-8") as f_p:
-            self.origin_folders = json.load(f_p)
+        with open(LINUX_RECENTLY_MOVED, "rb") as f_p:
+            self.origin_folders = pickle.load(f_p)
 
         # fill the list of origin folers with the stored data
-        origin_folders = self.origin_folders
+        # TODO: make a method to get the list of paths from the list of OriginFolders instances
+        origin_folders = []
+        for folder in self.origin_folders:
+            origin_folders.append(folder.get_path())
         list_widget = self.main_ui.list_origin_folders
         for item in origin_folders:
             item_widget = QListWidgetItem(item)
             list_widget.addItem(item_widget)
 
-    def handle_open_recently_moved(self):
+    def handle_open_recently_moved(self) -> None:
         """
         Callback handler for when the user wants to see a moved file
         """
@@ -95,7 +99,7 @@ class MainWindow(QMainWindow):
         # with subprocess.Popen(r'explorer /select,' + folder_path) as open_folder_process:
         #    open_folder_process.wait()
 
-    def handle_add_origin_folder(self):
+    def handle_add_origin_folder(self) -> None:
         """
         Callback when the user wants to add a origin folder
         """

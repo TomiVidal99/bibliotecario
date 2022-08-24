@@ -2,7 +2,7 @@
     OriginFolder inherits Folder, describes the folder that holds the files that are going to be watched
 """
 
-from Folder import Folder
+from src.data_types.Folder import Folder
 
 class OriginFolder(Folder):
     """
@@ -10,3 +10,9 @@ class OriginFolder(Folder):
     """
     def __init__(self, id_, name, path) -> None:
         super().__init__(id_, name, path)
+
+    def get_path(self) -> str:
+        """
+        Getter for the path
+        """
+        return self.path

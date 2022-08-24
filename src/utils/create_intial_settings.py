@@ -4,11 +4,13 @@
 
 import json
 import os
+import pickle
 import shutil
-from .intial_values import get_default_origin_folders
+from src.utils.intial_values import get_default_origin_folders
+from src.data_types.OriginFolder import OriginFolder
 
 
-def create_settings_folder(settings_folder):
+def create_settings_folder(settings_folder) -> None:
     """
     Create the folder that contains all the settings files
     """
@@ -17,11 +19,11 @@ def create_settings_folder(settings_folder):
         os.mkdir(settings_folder)
 
 
-def create_intial_settings(settings_path):
+def create_intial_settings(settings_path) -> None:
     """
     Creates the intial settings
     """
-    DEFAULT_SETTINGS_FILE_RELATIVE_PATH = "./../../assets/defaultUserSettings.json"
+    DEFAULT_SETTINGS_FILE_RELATIVE_PATH = "./../assets/defaultUserSettings.json"
     DEFAULT_SETTINGS_FILE = os.path.join(
         os.path.dirname(__file__), DEFAULT_SETTINGS_FILE_RELATIVE_PATH
     )
@@ -32,18 +34,18 @@ def create_intial_settings(settings_path):
             print("--LOG--> Created new user settings")
 
 
-def create_intial_origin_folders(origin_path):
+def create_intial_origin_folders(origin_path) -> None:
     """
     Creates the initial origin folders
     """
-    default_origin_folders = get_default_origin_folders(origin_path)
+    default_origin_folders = get_default_origin_folders()
     # TODO: should make this better and move it to another file
-    with open(origin_path, "+w", -1, "utf-8") as f_p:
-        json.dump(default_origin_folders, f_p)
+    with open(origin_path, "wb") as f_p:
+        pickle.dump(default_origin_folders, f_p)
         print("--LOG--> Done saving intial origin folders to: '" + origin_path + "'")
 
 
-def reset_settings_to_default(settings_folder):
+def reset_settings_to_default(settings_folder) -> None:
     """
     Removes user settings and sets everything to the default values.
     """
