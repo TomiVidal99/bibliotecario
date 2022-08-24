@@ -4,13 +4,14 @@
 
 import os
 import sys
+import json
 from PyQt5.QtWidgets import QApplication, QListWidgetItem, QMainWindow
-from app_ui import QtWidgets, Ui_MainWindow
+from app_ui import Ui_MainWindow
 from utils.create_intial_settings import (
     create_settings_folder,
     create_intial_settings,
     create_intial_origin_folders,
-    json,
+    reset_settings_to_default,
 )
 
 # TODO: change this, make them dynamic and must detect OS
@@ -44,6 +45,14 @@ class MainApp(QMainWindow):
         self.main_ui.btn_add_origin_folder.clicked.connect(
             self.handle_add_origin_folder
         )
+        self.main_ui.btn_reset_settings.clicked.connect(self.handle_reset_settings)
+
+    def handle_reset_settings(self):
+        """
+        Callback to reset the user settings
+        """
+        # TODO: should pop up a menu to confirm the action
+        reset_settings_to_default(LINUX_SETTINGS_FOLDER)
 
     def check_first_init(self):
         """
@@ -70,6 +79,7 @@ class MainApp(QMainWindow):
         with open(LINUX_RECENTLY_MOVED, "r", -1, "utf-8") as f_p:
             self.origin_folders = json.load(f_p)
 
+        # fill the list of origin folers with the stored data
         origin_folders = self.origin_folders
         list_widget = self.main_ui.list_origin_folders
         for item in origin_folders:
@@ -93,7 +103,7 @@ class MainApp(QMainWindow):
         print("TODO: add origin folder")
 
 
-# Common practice when a file is executable
+# Good practice when a file is executable is to describe it as follows
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     win = MainApp()
