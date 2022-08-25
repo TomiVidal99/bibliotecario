@@ -5,7 +5,7 @@
 import os
 import json
 import pickle
-from PyQt5.QtWidgets import QListWidgetItem, QMainWindow
+from PyQt5.QtWidgets import QListWidgetItem, QMainWindow, QMessageBox
 from src.gui.app_ui import Ui_MainWindow
 from src.utils.create_intial_settings import (
     create_settings_folder,
@@ -29,11 +29,30 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.main_ui = Ui_MainWindow()
         self.main_ui.setupUi(self)
+        self.default_user_folders = {}
         self.recently_moved = []
         self.origin_folders = []
         self.destination_folders = []
         self.setup_btn_handlers()  # add callbacks to buttons
-        self.restore_previous_settings()
+        self.restore_previous_settings()  # gets the settings stored, if they dont exist make them
+        self.setup_ui()  # buils the UI, should be the last method to execute
+
+    def define_default_user_folders(self) -> None:
+        """
+        Creates the default user system folders paths (i.e: downloads, documents, etc.). It depends on the OS and the USER
+        """
+        self.default_user_folders = {
+            "Settings": LINUX_SETTINGS,
+            "SettingsFolder": LINUX_SETTINGS_FOLDER,
+            "RecentlyMoved": LINUX_RECENTLY_MOVED,
+        }
+
+    def setup_ui(self) -> None:
+        """
+        Builds the UI with the correspondent language
+        """
+        # TODO: make this and function that handles the language
+        self.show()
 
     def setup_btn_handlers(self) -> None:
         """
@@ -83,11 +102,20 @@ class MainWindow(QMainWindow):
         # TODO: make a method to get the list of paths from the list of OriginFolders instances
         origin_folders = []
         for folder in self.origin_folders:
-            origin_folders.append(folder.get_path())
+            origin_folders.append(folder.get_name())
         list_widget = self.main_ui.list_origin_folders
-        for item in origin_folders:
-            item_widget = QListWidgetItem(item)
-            list_widget.addItem(item_widget)
+
+        def handle_origin_folder_clicked(self) -> None:
+            content = self.text()
+            print(content)
+            msg = QMessageBox()
+            msg.setWindowTitle(content)
+
+        for folder in origin_folders:
+            # item_widget = QListWidgetItem(item)
+            list_widget.addItem(folder)
+
+        list_widget.itemClicked.connect(handle_origin_folder_clicked)
 
     def handle_open_recently_moved(self) -> None:
         """
