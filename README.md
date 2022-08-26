@@ -1,7 +1,7 @@
 [![linting: pylint](https://img.shields.io/badge/linting-pylint-yellowgreen)](https://github.com/PyCQA/pylint)
 
 # bibliotecario
-A GUI app that organizes your files.
+A GUI app that organizes your files through easily created filters.
 
 ## Screenshots
 
@@ -23,7 +23,7 @@ A GUI app that organizes your files.
 
 <!--- Provide general information about your project here.-->
 
-    The gold is to provide a GUI to setup how files should be organized automatically in your system. The files will move from what we call *origin folders* to *destination folders* through *Filters* which are a way to describe what's the trigger and how should the file be organized; *Filters* are [regex](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) expressions basically, and the specific type of filters *'name'* and *'format'* are just some particular regex. Eventually i'd be great to provide some backup system.
+The gold is to provide a GUI to setup how files should be organized automatically in your system. The files will move from what we call *origin folders* to *destination folders* through *Filters* which are a way to describe what's the trigger and how should the file be organized; *Filters* are [regex](https://docs.microsoft.com/en-us/dotnet/standard/base-types/regular-expression-language-quick-reference) expressions basically, and the specific type of filters *'name'* and *'format'* are just some particular regex. Eventually i'd be great to provide some backup system.
 
 ## Technologies Used
 
