@@ -13,6 +13,7 @@ class FoldersList:
         Append a new folder to the list
         """
         self.folders.append(folder)
+        self.update_ui()
 
     def set_list_widget(self, list_widget) -> None:
         """

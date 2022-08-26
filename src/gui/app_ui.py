@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 
-# Form implementation generated from reading ui file 'src/gui/app.ui'
+# Form implementation generated from reading ui file './src/gui/app.ui'
 #
 # Created by: PyQt5 UI code generator 5.15.7
 #
@@ -56,12 +56,16 @@ class Ui_MainWindow(object):
         self.list_destination_folders = QtWidgets.QListWidget(self.app_scroll)
         self.list_destination_folders.setObjectName("list_destination_folders")
         self.verticalLayout_2.addWidget(self.list_destination_folders)
+        self.btn_add_destination_folder = QtWidgets.QPushButton(self.app_scroll)
+        self.btn_add_destination_folder.setObjectName("btn_add_destination_folder")
+        self.verticalLayout_2.addWidget(self.btn_add_destination_folder)
         self.list_recently_moved.raise_()
         self.label_app_title.raise_()
         self.btn_open_recently_moved.raise_()
         self.list_origin_folders.raise_()
         self.list_destination_folders.raise_()
         self.btn_add_origin_folder.raise_()
+        self.btn_add_destination_folder.raise_()
         self.app.setWidget(self.app_scroll)
         self.verticalLayout.addWidget(self.app)
         self.btn_reset_settings = QtWidgets.QPushButton(self.app_container)
@@ -87,4 +91,5 @@ class Ui_MainWindow(object):
         self.label_app_title.setText(_translate("MainWindow", "BIBLIOTECARIO"))
         self.btn_open_recently_moved.setText(_translate("MainWindow", "Open folder"))
         self.btn_add_origin_folder.setText(_translate("MainWindow", "Add origin folder"))
+        self.btn_add_destination_folder.setText(_translate("MainWindow", "Add destination folder"))
         self.btn_reset_settings.setText(_translate("MainWindow", "Reset settings"))

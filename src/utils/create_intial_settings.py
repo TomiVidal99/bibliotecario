@@ -79,6 +79,12 @@ def get_stored_data(data_filepath) -> list:
     """
     # TODO: maybe add error handling?? return a tuple with an error state???
     # load the data from the settings files
+
+    does_data_exist = os.path.exists(data_filepath)
+    if not does_data_exist:
+        set_stored_data(data_filepath, [])
+        return []
+
     with open(data_filepath, "rb") as _fp:
         data = pickle.load(_fp)
         print("--LOG--> Done loading data from '" + data_filepath + "'.")
