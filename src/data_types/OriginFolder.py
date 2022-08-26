@@ -10,15 +10,3 @@ class OriginFolder(Folder):
     """
     def __init__(self, id_, name, path) -> None:
         super().__init__(id_, name, path)
-
-    def get_name(self) -> str:
-        """
-        Getter for the name
-        """
-        return self.name
-
-    def get_path(self) -> str:
-        """
-        Getter for the path
-        """
-        return self.path
