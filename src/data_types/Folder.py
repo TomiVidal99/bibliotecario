@@ -34,3 +34,15 @@ class Folder():
         if isinstance(path, str):
             return
         self.path = path
+
+    def get_name(self) -> str:
+        """
+        Getter for the name
+        """
+        return self.name
+
+    def get_path(self) -> str:
+        """
+        Getter for the path
+        """
+        return self.path
