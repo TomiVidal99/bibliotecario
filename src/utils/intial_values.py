@@ -5,7 +5,6 @@
 
 import platform
 import os
-import uuid
 from pathlib import Path
 from src.data_types.OriginFolder import OriginFolder
 
@@ -34,7 +33,7 @@ def get_default_origin_folders() -> list:
         downloads_folder = str(os.path.join(user_path, "Downloads"))
         desktop_folder = str(os.path.join(user_path, "Desktop"))
     # create the OriginFolder instances
-    downloads = OriginFolder(uuid.uuid1(), "Downloads", downloads_folder)
+    downloads = OriginFolder("Downloads", downloads_folder)
     desktop = OriginFolder(0, "Desktop", desktop_folder)
     # push the folders to the settings
     return [downloads, desktop]

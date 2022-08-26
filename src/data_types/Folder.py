@@ -2,22 +2,23 @@
     Folder is the basic type of data that the app handles
 """
 
+import uuid
+
 class Folder():
     """
     Base type of Folder
     """
-    def __init__(self, id_, name, path) -> None:
-        self.id = id_
+    def __init__(self, name, path) -> None:
+        self.id = ""
         self.name = name
         self.path = path
+        self.set_id()
 
-    def set_id(self, id_) -> None:
+    def set_id(self) -> None:
         """
-        Setter for the id
+        Creates an unique id
         """
-        if isinstance(id_, int):
-            return
-        self.id = id
+        self.id = str(uuid.uuid1())
 
     def set_name(self, name) -> None:
         """
@@ -34,6 +35,12 @@ class Folder():
         if isinstance(path, str):
             return
         self.path = path
+
+    def get_id(self) -> str:
+        """
+        Getter for the id
+        """
+        return self.id
 
     def get_name(self) -> str:
         """

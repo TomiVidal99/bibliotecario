@@ -3,7 +3,6 @@
 """
 
 import os
-import uuid
 from .data_types.DestinationFolder import DestinationFolder
 from .data_types.OriginFoldersList import OriginFoldersList
 from .data_types.DestinationFoldersList import DestinationFoldersList
@@ -171,8 +170,7 @@ class MainWindow(QMainWindow):
         # TODO: make a new popup window that has the inputs
         folder_path = "test/path/a"
         folder_name = "Test path"
-        folder_id = uuid.uuid1()
-        folder = OriginFolder(folder_id, folder_name, folder_path)
+        folder = OriginFolder(folder_name, folder_path)
         self.origin_folders.add_folder(folder)
         print("--LOG--> Added '" + folder_name + "', with id = " + str(folder_id))
 
@@ -184,7 +182,6 @@ class MainWindow(QMainWindow):
         # TODO: make a new popup window that has the inputs and the filters
         folder_path = "/my/second/test/abcd"
         folder_name = "Some cool destination folder like Documents/pdfs"
-        folder_id = uuid.uuid1()
-        folder = DestinationFolder(folder_id, folder_name, folder_path, [])
+        folder = DestinationFolder(folder_name, folder_path, [])
         self.destination_folders.add_folder(folder)
-        print("--LOG--> Added '" + folder_name + "', with id = " + str(folder_id))
+        print("--LOG--> Added '" + folder_name + "', with id = " + str(folder.get_id()))
