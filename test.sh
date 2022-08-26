@@ -6,7 +6,7 @@
 # Executes the code for development.
 
 # Compiles the gui code to python.
-pyuic5 src/gui/app.ui > src/gui/app_ui.py
+pyuic5 ./src/gui/app.ui > ./src/gui/app_ui.py
 
 # Executes the app.
 python main.py
