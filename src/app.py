@@ -15,10 +15,11 @@ from .utils.create_intial_settings import (
     handle_first_init,
     reset_settings_to_default,
     get_stored_data,
+    set_stored_data,
+    get_default_user_settings_path,
 )
 
 DEFAULT_USER_LANGUAGE = "en_us"
-DEFAULT_SETTINGS_PATH = "/home/tomii/.config/bibliotecario"
 
 
 class MainWindow(QMainWindow):
@@ -29,7 +30,7 @@ class MainWindow(QMainWindow):
     def __init__(self) -> None:
         super().__init__()
         self.app_name = "bibliotecario"
-        self.default_paths = {"bibliotecario": DEFAULT_SETTINGS_PATH}
+        self.default_paths = {}
         self.origin_folders = OriginFoldersList([], None)
         self.destination_folders = DestinationFoldersList([], None)
         self.recently_moved_folders = RecentlyMovedFoldersList([], None)
@@ -50,6 +51,9 @@ class MainWindow(QMainWindow):
         self.destination_folders.set_list_widget(destination_folders_list_widget)
         self.recently_moved_folders.set_list_widget(recently_moved_folders_list_widget)
         self.load_stored_data()  # this is here instead in the function that handles the first init because it requires UI initilization
+        self.origin_folders.set_update_stored_folders_callback(
+            self.update_stored_origin_folders
+        )
 
     def update_ui(self) -> None:
         """
@@ -88,7 +92,15 @@ class MainWindow(QMainWindow):
             self.handle_app_reset_settings
         )
         self.ui_components.btn_add_origin_folder.clicked.connect(self.add_origin_folder)
-        self.ui_components.btn_add_destination_folder.clicked.connect(self.add_destination_folder)
+        self.ui_components.btn_add_destination_folder.clicked.connect(
+            self.add_destination_folder
+        )
+        self.ui_components.btn_remove_origin_folder.clicked.connect(
+            self.remove_origin_foler
+        )
+        self.ui_components.btn_save_settings.clicked.connect(
+            self.update_stored_origin_folders
+        )
 
     def build_ui(self) -> None:
         """
@@ -117,17 +129,18 @@ class MainWindow(QMainWindow):
         i.e: 'bibliotecario', 'Downloads', 'Settings'
         """
         # TODO: improve this and add more paths?
+        self.default_paths["bibliotecario"] = get_default_user_settings_path()
         self.default_paths["settings"] = os.path.join(
             self.default_paths.get("bibliotecario", ""), "settings"
         )
         self.default_paths["origin_folders"] = os.path.join(
-            self.default_paths.get("bibliotecario", ""), "origin_folders"
+            self.default_paths.get("bibliotecario", ""), "origin_folders.bin"
         )
         self.default_paths["recently_moved_folders"] = os.path.join(
-            self.default_paths.get("bibliotecario", ""), "recently_moved_folders"
+            self.default_paths.get("bibliotecario", ""), "recently_moved_folders.bin"
         )
         self.default_paths["destination_folders"] = os.path.join(
-            self.default_paths.get("bibliotecario", ""), "destination_folders"
+            self.default_paths.get("bibliotecario", ""), "destination_folders.bin"
         )
 
     def set_user_settings(self) -> None:
@@ -172,7 +185,16 @@ class MainWindow(QMainWindow):
         folder_name = "Test path"
         folder = OriginFolder(folder_name, folder_path)
         self.origin_folders.add_folder(folder)
-        print("--LOG--> Added '" + folder_name + "', with id = " + str(folder_id))
+        print("--LOG--> Added '" + folder_name + "', with id = " + folder.get_id())
+
+    def remove_origin_foler(self) -> None:
+        """
+        Removes an origin folder from the list
+        """
+        # TODO
+        folder_id = self.origin_folders.get_last_clicked()
+        if folder_id != "":
+            self.origin_folders.remove_folder(folder_id)
 
     def add_destination_folder(self) -> None:
         """
@@ -185,3 +207,18 @@ class MainWindow(QMainWindow):
         folder = DestinationFolder(folder_name, folder_path, [])
         self.destination_folders.add_folder(folder)
         print("--LOG--> Added '" + folder_name + "', with id = " + str(folder.get_id()))
+
+    def remove_destintion_folder(self) -> None:
+        """
+        Removes a destination folder from the list
+        """
+        # TODO
+
+    def update_stored_origin_folders(self) -> None:
+        """
+        Before we destroy the app save the current state
+        """
+        # TODO: think, do i wanna save just the list of folders or the entire OriginFolders instance?
+        origin_folders_path = self.default_paths["origin_folders"]
+        set_stored_data(origin_folders_path, self.origin_folders.folders)
+        print("--LOG--> Saved current state'")

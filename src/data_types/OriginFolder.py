@@ -8,5 +8,5 @@ class OriginFolder(Folder):
     """
     The folder that is going to be watched for changes.
     """
-    def __init__(self, id_, name, path) -> None:
-        super().__init__(id_, name, path)
+    def __init__(self, name, path) -> None:
+        super().__init__(name, path)

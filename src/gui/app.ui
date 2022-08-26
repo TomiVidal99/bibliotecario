@@ -7,56 +7,55 @@
     <x>0</x>
     <y>0</y>
     <width>773</width>
-    <height>654</height>
+    <height>871</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
   <widget class="QWidget" name="app_container">
-   <layout class="QVBoxLayout" name="verticalLayout">
-    <item>
-     <widget class="QScrollArea" name="app">
-      <property name="widgetResizable">
-       <bool>true</bool>
-      </property>
-      <widget class="QWidget" name="app_scroll">
-       <property name="geometry">
-        <rect>
-         <x>0</x>
-         <y>0</y>
-         <width>757</width>
-         <height>575</height>
-        </rect>
-       </property>
-       <property name="font">
-        <font>
-         <family>Hack Nerd Font</family>
-         <pointsize>12</pointsize>
-        </font>
-       </property>
-       <property name="toolTip">
-        <string/>
-       </property>
-       <layout class="QVBoxLayout" name="verticalLayout_2">
-        <item alignment="Qt::AlignHCenter">
-         <widget class="QLabel" name="label_app_title">
-          <property name="font">
-           <font>
-            <family>Hack Nerd Font</family>
-            <pointsize>24</pointsize>
-            <italic>true</italic>
-            <strikeout>false</strikeout>
-           </font>
-          </property>
-          <property name="text">
-           <string>BIBLIOTECARIO</string>
-          </property>
-         </widget>
-        </item>
-        <item>
-         <widget class="QListWidget" name="list_recently_moved"/>
-        </item>
+   <widget class="QScrollArea" name="app">
+    <property name="geometry">
+     <rect>
+      <x>60</x>
+      <y>110</y>
+      <width>651</width>
+      <height>571</height>
+     </rect>
+    </property>
+    <property name="verticalScrollBarPolicy">
+     <enum>Qt::ScrollBarAsNeeded</enum>
+    </property>
+    <property name="horizontalScrollBarPolicy">
+     <enum>Qt::ScrollBarAlwaysOff</enum>
+    </property>
+    <property name="widgetResizable">
+     <bool>true</bool>
+    </property>
+    <widget class="QWidget" name="app_scroll">
+     <property name="geometry">
+      <rect>
+       <x>0</x>
+       <y>0</y>
+       <width>647</width>
+       <height>567</height>
+      </rect>
+     </property>
+     <property name="font">
+      <font>
+       <family>Hack Nerd Font</family>
+       <pointsize>12</pointsize>
+      </font>
+     </property>
+     <property name="toolTip">
+      <string/>
+     </property>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QListWidget" name="list_recently_moved"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="origin_folders_btn_container">
         <item>
          <widget class="QPushButton" name="btn_open_recently_moved">
           <property name="text">
@@ -65,8 +64,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="list_origin_folders"/>
+         <widget class="QPushButton" name="btn_remove_recently_moved">
+          <property name="text">
+           <string>Remove from history</string>
+          </property>
+         </widget>
         </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="list_origin_folders"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="recently_moved_btn_container">
         <item>
          <widget class="QPushButton" name="btn_add_origin_folder">
           <property name="text">
@@ -75,8 +85,19 @@
          </widget>
         </item>
         <item>
-         <widget class="QListWidget" name="list_destination_folders"/>
+         <widget class="QPushButton" name="btn_remove_origin_folder">
+          <property name="text">
+           <string>Remove selected origin folder</string>
+          </property>
+         </widget>
         </item>
+       </layout>
+      </item>
+      <item>
+       <widget class="QListWidget" name="list_destination_folders"/>
+      </item>
+      <item>
+       <layout class="QHBoxLayout" name="destination_folders_btn_container">
         <item>
          <widget class="QPushButton" name="btn_add_destination_folder">
           <property name="text">
@@ -84,43 +105,92 @@
           </property>
          </widget>
         </item>
+        <item>
+         <widget class="QPushButton" name="btn_remove_destination_folder">
+          <property name="text">
+           <string>Remove destination folder</string>
+          </property>
+         </widget>
+        </item>
        </layout>
-       <zorder>list_recently_moved</zorder>
-       <zorder>label_app_title</zorder>
-       <zorder>btn_open_recently_moved</zorder>
-       <zorder>list_origin_folders</zorder>
-       <zorder>list_destination_folders</zorder>
-       <zorder>btn_add_origin_folder</zorder>
-       <zorder>btn_add_destination_folder</zorder>
-      </widget>
-     </widget>
-    </item>
-    <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-     <widget class="QPushButton" name="btn_reset_settings">
-      <property name="minimumSize">
-       <size>
-        <width>761</width>
-        <height>0</height>
-       </size>
-      </property>
-      <property name="maximumSize">
-       <size>
-        <width>761</width>
-        <height>16777215</height>
-       </size>
-      </property>
-      <property name="font">
-       <font>
-        <family>Hack Nerd Font</family>
-        <pointsize>12</pointsize>
-       </font>
-      </property>
-      <property name="text">
-       <string>Reset settings</string>
-      </property>
-     </widget>
-    </item>
-   </layout>
+      </item>
+     </layout>
+    </widget>
+   </widget>
+   <widget class="QPushButton" name="btn_reset_settings">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>790</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="minimumSize">
+     <size>
+      <width>30</width>
+      <height>0</height>
+     </size>
+    </property>
+    <property name="maximumSize">
+     <size>
+      <width>761</width>
+      <height>16777215</height>
+     </size>
+    </property>
+    <property name="font">
+     <font>
+      <family>Hack Nerd Font</family>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Reset settings</string>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btn_save_settings">
+    <property name="geometry">
+     <rect>
+      <x>280</x>
+      <y>730</y>
+      <width>191</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <pointsize>12</pointsize>
+      <weight>75</weight>
+      <bold>true</bold>
+     </font>
+    </property>
+    <property name="text">
+     <string>Save Settings</string>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_app_title">
+    <property name="geometry">
+     <rect>
+      <x>230</x>
+      <y>30</y>
+      <width>314</width>
+      <height>48</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Hack Nerd Font</family>
+      <pointsize>30</pointsize>
+      <italic>true</italic>
+      <strikeout>false</strikeout>
+     </font>
+    </property>
+    <property name="text">
+     <string>BIBLIOTECARIO</string>
+    </property>
+   </widget>
   </widget>
   <widget class="QStatusBar" name="statusbar"/>
  </widget>
