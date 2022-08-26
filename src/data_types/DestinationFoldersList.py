@@ -1,9 +1,9 @@
-from PyQt5.QtWidgets import QListWidgetItem
 from .FoldersList import FoldersList
+from PyQt5.QtWidgets import QListWidgetItem
 
-class OriginFoldersList(FoldersList):
+class DestinationFoldersList(FoldersList):
     """
-    The list of origin folders
+    The list of DestinationFolders
     """
 
     def __init__(self, list_widget, folders) -> None:
@@ -13,6 +13,7 @@ class OriginFoldersList(FoldersList):
         """
         Updates the UI list of components with the current list of origin folders
         """
+        # TODO: make this
         folders_name = []
         self.list_widget.clear() # remove all items of the list first
         for folder in self.folders:

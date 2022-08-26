@@ -77,6 +77,13 @@
         <item>
          <widget class="QListWidget" name="list_destination_folders"/>
         </item>
+        <item>
+         <widget class="QPushButton" name="btn_add_destination_folder">
+          <property name="text">
+           <string>Add destination folder</string>
+          </property>
+         </widget>
+        </item>
        </layout>
        <zorder>list_recently_moved</zorder>
        <zorder>label_app_title</zorder>
@@ -84,6 +91,7 @@
        <zorder>list_origin_folders</zorder>
        <zorder>list_destination_folders</zorder>
        <zorder>btn_add_origin_folder</zorder>
+       <zorder>btn_add_destination_folder</zorder>
       </widget>
      </widget>
     </item>
