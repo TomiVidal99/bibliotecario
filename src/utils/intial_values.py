@@ -20,6 +20,7 @@ def get_default_origin_folders() -> list:
     """
     Creates the default origin folders depending on the current OS.
     """
+    print("--LOG--> creating default origin folders")
     current_os = get_current_os()
     # create the path to documents and download depending on the user and the OS
     # TODO: check case for MacOS? or just ignore that system.
