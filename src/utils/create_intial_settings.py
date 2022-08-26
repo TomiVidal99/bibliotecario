@@ -2,12 +2,30 @@
     Handle the the initial configuration
 """
 
-import json
+import getpass
+from pathlib import Path
 import os
 import pickle
 import shutil
-from .intial_values import get_default_origin_folders
+from .intial_values import get_default_origin_folders, get_current_os
 from src.data_types.OriginFolder import OriginFolder
+
+
+def get_default_user_settings_path() -> str:
+    """
+    Gets the default user settings path depending weather the user is using Windows, Linux or MacOS
+    """
+    # TODO: handle case for MacOS lol
+    current_os = get_current_os()
+    if current_os == "Windows":
+        user_name = getpass.getuser()
+        default_settings_path = "C:\\Users\\" + user_name + "\\Documents\\Myfiles"
+    else:
+        user_path = Path.home()
+        default_settings_path = str(os.path.join(user_path, ".config/bibliotecario"))
+
+    print("The path is: "+ default_settings_path)
+    return default_settings_path
 
 
 def handle_first_init(settings_folder, settings_file, origin_folders) -> None:

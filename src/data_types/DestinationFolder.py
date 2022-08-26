@@ -12,8 +12,8 @@ class DestinationFolder(Folder):
     The folder that recieves the files that are being organized.
     """
 
-    def __init__(self, id_, name, path, filters) -> None:
-        super().__init__(id_, name, path)
+    def __init__(self, name, path, filters) -> None:
+        super().__init__(name, path)
         self.filters = filters
 
     def set_filters(self, filters):
