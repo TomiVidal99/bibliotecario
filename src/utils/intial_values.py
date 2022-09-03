@@ -16,6 +16,15 @@ def get_current_os() -> str:
     return platform.system()
 
 
+def get_user_home() -> str:
+    current_os = get_current_os()
+    if current_os == "Windows":
+        user_home = os.path.expanduser("~")
+    else:
+        user_home = str(Path.home())
+    return user_home
+
+
 def get_default_origin_folders() -> list:
     """
     Creates the default origin folders depending on the current OS.

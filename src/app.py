@@ -10,6 +10,7 @@ from .data_types.RecentlyMovedFoldersList import RecentlyMovedFoldersList
 from .gui.app_ui import Ui_MainWindow
 from PyQt5 import QtWidgets
 from PyQt5.QtWidgets import QApplication, QMainWindow, QListWidgetItem
+from .utils.intial_values import get_user_home
 from .utils.create_intial_settings import (
     OriginFolder,
     handle_first_init,
@@ -91,7 +92,7 @@ class MainWindow(QMainWindow):
         self.ui_components.btn_reset_settings.clicked.connect(
             self.handle_app_reset_settings
         )
-        self.ui_components.btn_add_origin_folder.clicked.connect(self.add_origin_folder)
+        self.ui_components.btn_add_origin_folder.clicked.connect(self.handle_add_origin_folders)
         self.ui_components.btn_add_destination_folder.clicked.connect(
             self.add_destination_folder
         )
@@ -175,17 +176,25 @@ class MainWindow(QMainWindow):
         self.load_stored_data()  # loads to the state the stored data in the just created files
         self.update_ui()
 
-    def add_origin_folder(self) -> None:
+    def handle_add_origin_folders(self) -> None:
         """
         Creates a new origin folder and pushes it to the list
         """
         print("--LOG--> Adding new origin folder")
         # TODO: make a new popup window that has the inputs
-        folder_path = "test/path/a"
-        folder_name = "Test path"
-        folder = OriginFolder(folder_name, folder_path)
-        self.origin_folders.add_folder(folder)
-        print("--LOG--> Added '" + folder_name + "', with id = " + folder.get_id())
+        # folder_path = "test/path/a"
+        # folder_name = "Test path"
+        # folder = OriginFolder(folder_name, folder_path)
+        # self.origin_folders.add_folder(folder)
+        #print("--LOG--> Added '" + folder_name + "', with id = " + folder.get_id())
+        user_home = get_user_home()
+        origin_folders_list_widget = self.ui_components.list_origin_folders
+        folders_paths = self.origin_folders.add_folders(origin_folders_list_widget, user_home)
+        for folder_path in folders_paths:
+            names = folder_path.split("/")
+            folder_name = names[len(names)-1]
+            folder = OriginFolder(folder_name, folder_path)
+            self.origin_folders.add_folder(folder)
 
     def remove_origin_foler(self) -> None:
         """

@@ -1,5 +1,6 @@
-from PyQt5.QtWidgets import QListWidgetItem
+from PyQt5.QtWidgets import QListWidgetItem, QWidget, QFileDialog
 from .FoldersList import FoldersList
+from src.utils.get_folders_dialog import get_open_files_and_dirs
 
 class OriginFoldersList(FoldersList):
     """
@@ -30,3 +31,10 @@ class OriginFoldersList(FoldersList):
 
         if self.update_stored_folders_callback != None:
             self.update_stored_folders_callback()
+
+    def add_folders(self, parent=None, default_directory='') -> list:
+        """
+        Pops up a window that handles adding new folders to the list
+        """
+        folder_path_list = get_open_files_and_dirs(parent, '', default_directory, QFileDialog.ShowDirsOnly)
+        return folder_path_list
