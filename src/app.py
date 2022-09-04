@@ -215,7 +215,7 @@ class MainWindow(QMainWindow):
         folder_name = "Some cool destination folder like Documents/pdfs"
         folder = DestinationFolder(folder_name, folder_path, [])
         self.destination_folders.add_folder(folder)
-        print("--LOG--> Added '" + folder_name + "', with id = " + str(folder.get_id()))
+        print("--LOG--> Added '" + folder_name + "', with id = " + str(folder.get_id())): all
 
     def remove_destintion_folder(self) -> None:
         """

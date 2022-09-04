@@ -1,5 +1,6 @@
 from .FoldersList import FoldersList
 from PyQt5.QtWidgets import QListWidgetItem
+from src.utils.get_folders_dialog import get_open_files_and_dirs
 
 class DestinationFoldersList(FoldersList):
     """
@@ -21,3 +22,11 @@ class DestinationFoldersList(FoldersList):
         for item in folders_name:
             item_widget = QListWidgetItem(item)
             self.list_widget.addItem(item_widget)
+
+    def add_folder(self, user_home: str) -> None:
+        """
+        Pops up a window that handles the addition of a new folder
+        """
+        # TODO: all
+        #settings_window = 
+        #get_open_files_and_dirs(user_home)

@@ -56,24 +56,18 @@ Project is: _in progress_.
 
 ## Development
 To make the GUI we use [*designer-qt5*](https://www.riverbankcomputing.com/static/Docs/PyQt5/designer.html)
-### Linux
+### With Makefile
 ```bash
-sh editGui.sh
+make
 ```
-```bash
-sh test.sh
-```
-```bash
-sh compile.sh
-```
-###
-### Windows
-_*TODO*_
-
 
 ## TODO:
 
-- [ ] ALL.
+- [ ] Add destination folders filters.
+- [ ] Add destination folders selection.
+- [ ] Add folders watchers.
+- [ ] Handle language selection.
+- [ ] Add a blacklist filter for files in origin filters maybe?.
 
 ## Contributors
 [@TomiVidal99](https://github.com/TomiVidal99/) (https://tomas-vidal.xyz/)
