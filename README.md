@@ -76,7 +76,7 @@ _*TODO*_
 - [ ] ALL.
 
 ## Contributors
-[@TomiVidal99](https://github.com/TomiVidal99/) (https://tomas-vidal.xyz/)
+[@TomiVidal99](https://github.com/TomiVidal99/) (https://tomasvidal.xyz/)
 
 ## License
 
